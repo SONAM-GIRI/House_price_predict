@@ -56,8 +56,8 @@
             outline: none;
         }
 
-        input[type="submit"] {
-            margin-top: 25px;
+        input[type="submit"], .refresh-button {
+            margin-top: 20px;
             padding: 14px;
             background: linear-gradient(to right, #26a69a, #00796b);
             color: white;
@@ -70,7 +70,7 @@
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        input[type="submit"]:hover {
+        input[type="submit"]:hover, .refresh-button:hover {
             background: linear-gradient(to right, #00796b, #004d40);
             transform: scale(1.03);
         }
@@ -119,9 +119,22 @@
             <input type="submit" value="Predict Price 💰">
         </form>
 
-        {% if prediction %}
-            <div class="result">Estimated Price: ₹ {{ prediction }}</div>
-        {% endif %}
+       {% if prediction %}
+    <div class="result">💰 Estimated Price: ₹ {{ prediction }}</div>
+{% endif %}
+{% if location %}
+    <div class="result">📍 Suggested Location: {{ location }}</div>
+{% endif %}
+
+<button type="button" class="refresh-button" onclick="resetForm()">🔄 Reset</button>
+
+<script>
+function resetForm() {
+  document.querySelector('form').reset(); // Reset inputs
+  const results = document.querySelectorAll('.result');
+  results.forEach(div => div.style.display = 'none'); // Hide result boxes
+}
+</script>
 
         <div class="footer">Built by ❤️ Sonam Giri </div>
     </div>
