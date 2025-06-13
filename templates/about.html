@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - House Price Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(to right, #fdfbfb, #ebedee);
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+        }
+        h1 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+        p, li {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #00796b;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About This Project</h1>
+        <p><strong>House Price Predictor</strong> is a machine learning web app built using Flask and scikit-learn. It allows users to estimate the market value of a house based on factors like size, number of bedrooms, age, and location score.</p>
+
+        <p>This project demonstrates:</p>
+        <ul>
+            <li>Data handling and preprocessing with <strong>Pandas</strong></li>
+            <li>Model training using <strong>Linear Regression</strong> from scikit-learn</li>
+            <li>Building a web interface using <strong>Flask</strong> and HTML/CSS</li>
+            <li>User interaction with forms and result rendering</li>
+            <li>Deploy-ready design with modular routing</li>
+        </ul>
+
+        <p>This project was developed by <strong>Sonam Giri</strong> (<a href="https://github.com/SONAM-GIRI" target="_blank">Sonam-Giri</a>) to showcase full-stack AI integration in a simple and intuitive way.</p>
+
+        <div class="footer">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

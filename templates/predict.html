@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏠 House Price Predictor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #00796b;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: 600;
+            margin: 15px 0 5px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #00796b;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            margin-top: 25px;
+            padding: 14px;
+            background: linear-gradient(to right, #26a69a, #00796b);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #00796b, #004d40);
+            transform: scale(1.03);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 18px;
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 House Price Predictor</h1>
+        <form method="post" action="/predict">
+            <label for="size">Size (sqft):</label>
+            <input type="number" name="size" required>
+
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" name="bedrooms" min="1" max="5" required>
+
+            <label for="age">Age (house is old):</label>
+            <input type="number" name="age" min="0" required>
+
+            <label for="location">Location Score (1–10):</label>
+            <input type="number" name="location" min="1" max="10" required>
+
+            <input type="submit" value="Predict Price 💰">
+        </form>
+
+        {% if prediction %}
+            <div class="result">Estimated Price: ₹ {{ prediction }}</div>
+        {% endif %}
+
+        <div class="footer">Built by ❤️ Sonam Giri </div>
+    </div>
+</body>
+</html>
